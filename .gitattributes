@@ -1,0 +1,21 @@
+# Store every text file with LF endings, whatever the machine writes locally.
+# Without this, a file saved on Windows looks completely rewritten to everyone else.
+* text=auto eol=lf
+
+# Shell scripts must keep LF or they will not run.
+*.sh text eol=lf
+
+# Files Git must not try to merge or show as text.
+*.pdf binary
+*.pptx binary
+*.docx binary
+*.xlsx binary
+*.png binary
+*.jpg binary
+*.ico binary
+*.woff binary
+*.woff2 binary
+
+# Lock files are generated; keep them out of the language statistics and
+# collapse them in pull requests.
+package-lock.json linguist-generated=true
