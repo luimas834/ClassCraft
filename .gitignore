@@ -1,0 +1,41 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+
+# Internal planning notes, kept out of the repository
+CLAUDE.md
+ROADMAP.md
+*.local.md
+scripts/
+doc/session-notes/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+dist/
+.vite/
+coverage/
+npm-debug.log*
+yarn-error.log*
+
+# Database dumps and backups
+backups/
+*.sql.gz
+
+# Editors and operating systems
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
