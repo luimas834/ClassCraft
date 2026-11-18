@@ -1,0 +1,42 @@
+[project]
+name = "classcraft-backend"
+version = "0.1.0"
+description = "ClassCraft backend: the API and the class routine solver"
+requires-python = "==3.12.*"
+
+# Every version is pinned so that each team member builds the same image.
+dependencies = [
+    "fastapi==0.115.6",
+    "uvicorn[standard]==0.34.0",
+    "pydantic==2.10.4",
+    "pydantic-settings==2.7.1",
+    "sqlalchemy==2.0.36",
+    "psycopg[binary]==3.2.3",
+    "ortools==9.15.*",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest==8.3.4",
+    "httpx==0.28.1",
+    "ruff==0.8.6",
+]
+
+# Nothing is packaged yet. The folders `app` and `solver` are imported from the
+# working directory, so pip installs only the dependencies listed above.
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = []
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
