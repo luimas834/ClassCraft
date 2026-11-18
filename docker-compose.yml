@@ -1,0 +1,54 @@
+# The development stack: the database, the backend and the frontend.
+# Start it with `make up`, or `docker compose up --build` the first time.
+# The worker and the production stack are added in later iterations.
+
+services:
+  db:
+    image: postgres:17
+    env_file: .env
+    ports:
+      # Published so that a database tool on the laptop can connect too.
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      # The backend waits until this says the database accepts connections.
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  backend:
+    build: ./code/backend
+    env_file: .env
+    ports:
+      - "8000:8000"
+    volumes:
+      # The source folder is mounted, so Uvicorn reloads on every save.
+      - ./code/backend:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:8000/api/v1/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 20s
+
+  frontend:
+    build:
+      context: ./code/frontend
+      target: dev
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./code/frontend:/app
+      # Keeps the packages installed in the image; the mount above would
+      # otherwise hide them.
+      - /app/node_modules
+    depends_on:
+      - backend
+
+volumes:
+  db_data:
