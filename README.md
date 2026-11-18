@@ -13,9 +13,9 @@ Scope: one department, one semester.
 ## Course
 
 SWE 4506 — Design Project-I
-B.Sc. in Software Engineering
+B.Sc. in Software Engineering;
 Department of Computer Science and Engineering (CSE)
-Islamic University of Technology
+Islamic University of Technology-IUT, OIC
 
 ## Team
 
