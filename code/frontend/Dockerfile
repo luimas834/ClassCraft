@@ -5,8 +5,10 @@ FROM node:24-alpine AS dev
 WORKDIR /app
 
 # Install the packages on their own layer, so a code change does not repeat it.
-COPY package.json ./
-RUN npm install
+# `npm ci` follows package-lock.json exactly, so the image, every laptop and the
+# checks on GitHub use the same versions.
+COPY package.json package-lock.json ./
+RUN npm ci
 
 COPY . .
 

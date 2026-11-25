@@ -38,5 +38,16 @@ target-version = "py312"
 [tool.ruff.lint]
 select = ["E", "F", "I", "B", "UP"]
 
+# `ruff format` rewrites files; `ruff format --check` only reports them, which is
+# what the checks on GitHub run.
+[tool.ruff.format]
+quote-style = "double"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+
+# --strict-markers turns a misspelled marker into an error instead of a warning.
+addopts = "--strict-markers"
+markers = [
+    "slow: a test on the full IUT data; it takes minutes, so it runs in its own job",
+]

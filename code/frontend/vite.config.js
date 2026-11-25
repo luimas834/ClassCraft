@@ -16,4 +16,11 @@ export default defineConfig({
       },
     },
   },
+  test: {
+    // jsdom gives a test a pretend browser: a document, a window and events.
+    environment: 'jsdom',
+    setupFiles: './src/test/setup.js',
+    // The stylesheet is not needed to check what a component puts on the page.
+    css: false,
+  },
 })

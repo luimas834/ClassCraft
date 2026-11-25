@@ -1,0 +1,156 @@
+# The checks GitHub runs on every push and every pull request.
+# A pull request cannot be merged while one of these jobs is red.
+
+name: CI
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+# The jobs only read the repository; they never write to it.
+permissions:
+  contents: read
+
+jobs:
+  backend:
+    name: Backend
+    runs-on: ubuntu-latest
+    # A real PostgreSQL next to the job, because the health test asks a database.
+    services:
+      db:
+        image: postgres:17
+        env:
+          POSTGRES_USER: classcraft
+          POSTGRES_PASSWORD: classcraft
+          POSTGRES_DB: classcraft
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U classcraft -d classcraft"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://classcraft:classcraft@localhost:5432/classcraft
+    defaults:
+      run:
+        working-directory: code/backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ".[dev]"
+
+      - name: Look for style mistakes and likely bugs
+        run: ruff check .
+
+      - name: Check the formatting
+        run: ruff format --check .
+
+      - name: Run the quick tests
+        run: pytest -m "not slow"
+
+  solver-slow:
+    name: Slow solver tests
+    runs-on: ubuntu-latest
+    # The full-data tests may take minutes, but never more than this.
+    timeout-minutes: 5
+    defaults:
+      run:
+        working-directory: code/backend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install ".[dev]"
+
+      - name: Run the slow tests
+        run: |
+          set +e
+          pytest -m slow
+          status=$?
+          set -e
+          # pytest answers 5 when no test carries the marker. No solver test
+          # exists yet, so that counts as a pass until one does.
+          if [ "$status" -eq 5 ]; then
+            echo "No test is marked slow yet."
+            exit 0
+          fi
+          exit "$status"
+
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: code/frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          # Keeps the downloaded packages between runs, which saves a minute.
+          cache: npm
+          cache-dependency-path: code/frontend/package-lock.json
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Look for style mistakes
+        run: npm run lint
+
+      - name: Run the tests
+        run: npm test
+
+      - name: Build the web app
+        run: npm run build
+
+  docker:
+    name: Docker stack
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      # The compose file reads .env. The example values are safe here: this
+      # database lives for the length of the job and is reachable by nobody.
+      - name: Write the .env file for this run
+        run: cp .env.example .env
+
+      - name: Build the images
+        run: docker compose build
+
+      - name: Start the stack
+        run: docker compose up -d
+
+      - name: Wait until the backend answers
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://localhost:8000/api/v1/health; then
+              echo "The backend answered on attempt $attempt."
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "The backend never answered. Its log follows."
+          docker compose logs
+          exit 1
+
+      - name: Stop the stack
+        # Runs even when a step above failed, so nothing is left behind.
+        if: always()
+        run: docker compose down --volumes
