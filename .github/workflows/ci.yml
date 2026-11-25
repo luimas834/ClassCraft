@@ -118,3 +118,39 @@ jobs:
 
       - name: Build the web app
         run: npm run build
+
+  docker:
+    name: Docker stack
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      # The compose file reads .env. The example values are safe here: this
+      # database lives for the length of the job and is reachable by nobody.
+      - name: Write the .env file for this run
+        run: cp .env.example .env
+
+      - name: Build the images
+        run: docker compose build
+
+      - name: Start the stack
+        run: docker compose up -d
+
+      - name: Wait until the backend answers
+        run: |
+          for attempt in $(seq 1 30); do
+            if curl --fail --silent http://localhost:8000/api/v1/health; then
+              echo "The backend answered on attempt $attempt."
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "The backend never answered. Its log follows."
+          docker compose logs
+          exit 1
+
+      - name: Stop the stack
+        # Runs even when a step above failed, so nothing is left behind.
+        if: always()
+        run: docker compose down --volumes
