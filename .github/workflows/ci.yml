@@ -90,3 +90,31 @@ jobs:
             exit 0
           fi
           exit "$status"
+
+  frontend:
+    name: Frontend
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: code/frontend
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          # Keeps the downloaded packages between runs, which saves a minute.
+          cache: npm
+          cache-dependency-path: code/frontend/package-lock.json
+
+      - name: Install the packages
+        run: npm ci
+
+      - name: Look for style mistakes
+        run: npm run lint
+
+      - name: Run the tests
+        run: npm test
+
+      - name: Build the web app
+        run: npm run build
