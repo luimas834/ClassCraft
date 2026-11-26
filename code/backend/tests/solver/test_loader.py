@@ -68,10 +68,7 @@ def test_medium_fixture_loads():
 def test_tiny_fixture_matches_hand_checked_expected_placements():
     problem, placements = load_problem(FIXTURES / "tiny.json")
 
-    actual = {
-        (p.card_id, p.day, p.start_period, p.room)
-        for p in placements
-    }
+    actual = {(p.card_id, p.day, p.start_period, p.room) for p in placements}
 
     expected = {
         ("C1", "Mon", 1, "R1"),
@@ -83,7 +80,5 @@ def test_tiny_fixture_matches_hand_checked_expected_placements():
 
     assert actual == expected
 
-    fixed_cards = {
-        card.id for card in problem.cards if card.fixed_day is not None
-    }
+    fixed_cards = {card.id for card in problem.cards if card.fixed_day is not None}
     assert fixed_cards == {"C1", "C3"}
