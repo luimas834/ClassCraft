@@ -8,7 +8,7 @@ from collections import defaultdict
 from dataclasses import dataclass
 from itertools import combinations
 
-from solver.problem import Card, Placement, Problem, Settings
+from solver.problem import Card, Placement, Problem, Settings, TimeOff
 
 # What one card claims of one class in one slot: the card id and the group, if any.
 _Seat = tuple[str, str | None]
@@ -45,6 +45,7 @@ def validate(
     `settings` says which switchable rules are on; it defaults to the settings
     that came with the problem.
     """
+    rules = problem.settings if settings is None else settings
     cards = {card.id: card for card in problem.cards}
     placed = [item for item in placements if item.card_id in cards]
 
@@ -56,6 +57,10 @@ def validate(
     found += _check_h5(problem, placed, cards)
     found += _check_h6(problem, placed, cards)
     found += _check_h7(problem, placed, cards)
+    if rules.h8:
+        found += _check_h8(problem, placed, cards)
+    if rules.h9:
+        found += _check_h9(problem, placed, cards)
     return sorted(found, key=lambda item: (item.rule, item.card_ids))
 
 
@@ -353,6 +358,96 @@ def _check_h7(
             )
         )
     return found
+
+
+def _check_h8(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H8: a teacher teaches only in the periods they are available."""
+    away = _time_off_by_entity(problem, "teacher")
+
+    found: list[Violation] = []
+    for item in placed:
+        card = cards[item.card_id]
+        for teacher in card.teachers:
+            period = _first_blocked_period(away.get(teacher, ()), card, item)
+            if period is None:
+                continue
+            found.append(
+                Violation(
+                    "H8",
+                    (card.id,),
+                    item.day,
+                    period,
+                    f"{_teacher_label(problem, teacher)} is not available on "
+                    f"{item.day}, period {period}, but teaches {card.course}.",
+                )
+            )
+    return found
+
+
+def _time_off_by_entity(problem: Problem, entity_type: str) -> dict[str, tuple[TimeOff, ...]]:
+    """The time off of each teacher, room or class. A preferred slot is not time off."""
+    collected: dict[str, list[TimeOff]] = defaultdict(list)
+    for entry in problem.time_off:
+        if entry.entity_type == entity_type and not entry.preferred:
+            collected[entry.entity_id].append(entry)
+    return {key: tuple(value) for key, value in collected.items()}
+
+
+def _first_blocked_period(
+    entries: tuple[TimeOff, ...],
+    card: Card,
+    placement: Placement,
+) -> int | None:
+    """The first period of a placement that the time off of the entity blocks."""
+    weeks = _weeks_of(card, placement)
+    for period in _covered_periods(card, placement):
+        if any(_blocks_slot(entry, placement.day, period, weeks) for entry in entries):
+            return period
+    return None
+
+
+def _blocks_slot(entry: TimeOff, day: str, period: int, weeks: tuple[str, ...]) -> bool:
+    """Does a time-off entry cover this slot? An entry with no period covers the day."""
+    if entry.day != day:
+        return False
+    if entry.period is not None and entry.period != period:
+        return False
+    return entry.week is None or entry.week in weeks
+
+
+def _check_h9(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H9: the same course is not held twice on one day for the same audience."""
+    on_day: dict[tuple[str, tuple[tuple[str, str], ...], str], list[str]] = defaultdict(list)
+    for item in placed:
+        card = cards[item.card_id]
+        if card.allow_same_day:
+            continue
+        on_day[(card.course, _audience_key(card), item.day)].append(card.id)
+
+    found: list[Violation] = []
+    for (course, _audience, day), card_ids in on_day.items():
+        unique = tuple(sorted(set(card_ids)))
+        if len(unique) < 2:
+            continue
+        audience = _audience_label(problem, cards[unique[0]])
+        text = f"{course} for {audience} is held twice on {day}."
+        found.append(Violation("H9", unique, day, None, text))
+    return found
+
+
+def _audience_key(card: Card) -> tuple[tuple[str, str], ...]:
+    """The audiences of a card in a fixed order, so two cards can be compared."""
+    return tuple(
+        sorted((audience.class_id, audience.group_id or "") for audience in card.audiences)
+    )
 
 
 def _teacher_label(problem: Problem, teacher_id: str) -> str:
