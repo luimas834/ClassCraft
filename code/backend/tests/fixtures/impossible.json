@@ -1,0 +1,71 @@
+{
+  "meta": {
+    "name": "Impossible solver test instance",
+    "description": "Five lessons for one teacher, but only four available periods"
+  },
+  "time": {
+    "days": ["Mon", "Tue"],
+    "periods": [
+      {"id": 1, "start": "09:00", "end": "09:50"},
+      {"id": 2, "start": "10:00", "end": "10:50"},
+      {"id": 3, "start": "11:00", "end": "11:50"},
+      {"id": 4, "start": "12:00", "end": "12:50"}
+    ],
+    "two_period_lessons_may_start_at": [1, 3],
+    "lunch_break": {"after_period": 2}
+  },
+  "teachers": [
+    {"code": "T1", "name": "Teacher 1", "printed_as": "T1", "tag": null, "external": true, "placeholder": false}
+  ],
+  "rooms": [
+    {"name": "R1", "type": "classroom", "pool": "CLASSROOM"}
+  ],
+  "room_pools": {
+    "CLASSROOM": ["R1"]
+  },
+  "classes": [
+    {"id": "X", "name": "Class X", "kind": "regular", "divisions": [["A"]]},
+    {"id": "Y", "name": "Class Y", "kind": "regular", "divisions": [["A"]]}
+  ],
+  "lessons": [
+    {
+      "id": "X1", "course": "X Course 1", "length_periods": 1,
+      "weeks": "all", "teachers": ["T1"],
+      "audience": [{"class": "X", "group": "A"}],
+      "room_pool": "CLASSROOM"
+    },
+    {
+      "id": "X2", "course": "X Course 2", "length_periods": 1,
+      "weeks": "all", "teachers": ["T1"],
+      "audience": [{"class": "X", "group": "A"}],
+      "room_pool": "CLASSROOM"
+    },
+    {
+      "id": "X3", "course": "X Course 3", "length_periods": 1,
+      "weeks": "all", "teachers": ["T1"],
+      "audience": [{"class": "X", "group": "A"}],
+      "room_pool": "CLASSROOM"
+    },
+    {
+      "id": "Y1", "course": "Y Course 1", "length_periods": 1,
+      "weeks": "all", "teachers": ["T1"],
+      "audience": [{"class": "Y", "group": "A"}],
+      "room_pool": "CLASSROOM"
+    },
+    {
+      "id": "Y2", "course": "Y Course 2", "length_periods": 1,
+      "weeks": "all", "teachers": ["T1"],
+      "audience": [{"class": "Y", "group": "A"}],
+      "room_pool": "CLASSROOM"
+    }
+  ],
+  "assumed_constraints": {
+    "external_teacher_allowed_days": {
+      "explanation": "T1 is available on Monday only",
+      "days": {
+        "T1": ["Mon"]
+      }
+    }
+  },
+  "expected": []
+}

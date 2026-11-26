@@ -1,0 +1,279 @@
+{
+    "meta":  {
+                 "name":  "Tiny solver test instance",
+                 "description":  "Five cards with a known placement"
+             },
+    "time":  {
+                 "days":  [
+                              "Mon",
+                              "Tue"
+                          ],
+                 "periods":  [
+                                 {
+                                     "id":  1,
+                                     "start":  "09:00",
+                                     "end":  "09:50"
+                                 },
+                                 {
+                                     "id":  2,
+                                     "start":  "10:00",
+                                     "end":  "10:50"
+                                 },
+                                 {
+                                     "id":  3,
+                                     "start":  "11:00",
+                                     "end":  "11:50"
+                                 },
+                                 {
+                                     "id":  4,
+                                     "start":  "12:00",
+                                     "end":  "12:50"
+                                 }
+                             ],
+                 "two_period_lessons_may_start_at":  [
+                                                         1,
+                                                         3
+                                                     ],
+                 "lunch_break":  {
+                                     "after_period":  2
+                                 }
+             },
+    "teachers":  [
+                     {
+                         "code":  "T1",
+                         "name":  "Teacher 1",
+                         "printed_as":  "T1",
+                         "tag":  null,
+                         "external":  true,
+                         "placeholder":  false
+                     },
+                     {
+                         "code":  "T2",
+                         "name":  "Teacher 2",
+                         "printed_as":  "T2",
+                         "tag":  null,
+                         "external":  true,
+                         "placeholder":  false
+                     }
+                 ],
+    "rooms":  [
+                  {
+                      "name":  "R1",
+                      "type":  "classroom",
+                      "pool":  "CLASSROOM"
+                  },
+                  {
+                      "name":  "L1",
+                      "type":  "lab",
+                      "pool":  "LAB"
+                  }
+              ],
+    "room_pools":  {
+                       "CLASSROOM":  [
+                                         "R1"
+                                     ],
+                       "LAB":  [
+                                   "L1"
+                               ]
+                   },
+    "classes":  [
+                    {
+                        "id":  "X",
+                        "name":  "Class X",
+                        "kind":  "regular",
+                        "divisions":  [
+                                          [
+                                              "A",
+                                              "B"
+                                          ]
+                                      ]
+                    }
+                ],
+    "lessons":  [
+                    {
+                        "id":  "C1",
+                        "course":  "Course 1",
+                        "series":  "Course 1 - A",
+                        "length_periods":  2,
+                        "weeks":  "all",
+                        "teachers":  [
+                                         "T1"
+                                     ],
+                        "audience":  [
+                                         {
+                                             "class":  "X",
+                                             "group":  "A"
+                                         }
+                                     ],
+                        "room_pool":  "CLASSROOM",
+                        "is_project_slot":  false,
+                        "fixed_time":  true,
+                        "current":  {
+                                        "day":  "Mon",
+                                        "start_period":  1,
+                                        "room":  "R1"
+                                    },
+                        "notes":  [
+
+                                  ],
+                        "assumption":  null
+                    },
+                    {
+                        "id":  "C2",
+                        "course":  "Course 2",
+                        "series":  "Course 2 - B",
+                        "length_periods":  2,
+                        "weeks":  "all",
+                        "teachers":  [
+                                         "T1"
+                                     ],
+                        "audience":  [
+                                         {
+                                             "class":  "X",
+                                             "group":  "B"
+                                         }
+                                     ],
+                        "room_pool":  "LAB",
+                        "is_project_slot":  false,
+                        "fixed_time":  false,
+                        "current":  {
+                                        "day":  "Mon",
+                                        "start_period":  3,
+                                        "room":  "L1"
+                                    },
+                        "notes":  [
+
+                                  ],
+                        "assumption":  null
+                    },
+                    {
+                        "id":  "C3",
+                        "course":  "Course 3",
+                        "series":  "Course 3 - A",
+                        "length_periods":  1,
+                        "weeks":  "all",
+                        "teachers":  [
+                                         "T2"
+                                     ],
+                        "audience":  [
+                                         {
+                                             "class":  "X",
+                                             "group":  "A"
+                                         }
+                                     ],
+                        "room_pool":  "CLASSROOM",
+                        "is_project_slot":  false,
+                        "fixed_time":  true,
+                        "current":  {
+                                        "day":  "Tue",
+                                        "start_period":  1,
+                                        "room":  "R1"
+                                    },
+                        "notes":  [
+
+                                  ],
+                        "assumption":  null
+                    },
+                    {
+                        "id":  "C4",
+                        "course":  "Course 4",
+                        "series":  "Course 4 - B",
+                        "length_periods":  1,
+                        "weeks":  "all",
+                        "teachers":  [
+                                         "T2"
+                                     ],
+                        "audience":  [
+                                         {
+                                             "class":  "X",
+                                             "group":  "B"
+                                         }
+                                     ],
+                        "room_pool":  "LAB",
+                        "is_project_slot":  false,
+                        "fixed_time":  false,
+                        "current":  {
+                                        "day":  "Tue",
+                                        "start_period":  2,
+                                        "room":  "L1"
+                                    },
+                        "notes":  [
+
+                                  ],
+                        "assumption":  null
+                    },
+                    {
+                        "id":  "C5",
+                        "course":  "Course 5",
+                        "series":  "Course 5 - A",
+                        "length_periods":  2,
+                        "weeks":  "all",
+                        "teachers":  [
+                                         "T2"
+                                     ],
+                        "audience":  [
+                                         {
+                                             "class":  "X",
+                                             "group":  "A"
+                                         }
+                                     ],
+                        "room_pool":  "CLASSROOM",
+                        "is_project_slot":  false,
+                        "fixed_time":  false,
+                        "current":  {
+                                        "day":  "Tue",
+                                        "start_period":  3,
+                                        "room":  "R1"
+                                    },
+                        "notes":  [
+
+                                  ],
+                        "assumption":  null
+                    }
+                ],
+    "assumed_constraints":  {
+                                "external_teacher_allowed_days":  {
+                                                                      "explanation":  "T1 is available Monday; T2 is available Tuesday",
+                                                                      "days":  {
+                                                                                   "T1":  [
+                                                                                              "Mon"
+                                                                                          ],
+                                                                                   "T2":  [
+                                                                                              "Tue"
+                                                                                          ]
+                                                                               }
+                                                                  }
+                            },
+    "expected":  [
+                     {
+                         "card_id":  "C1",
+                         "day":  "Mon",
+                         "start_period":  1,
+                         "room":  "R1"
+                     },
+                     {
+                         "card_id":  "C2",
+                         "day":  "Mon",
+                         "start_period":  3,
+                         "room":  "L1"
+                     },
+                     {
+                         "card_id":  "C3",
+                         "day":  "Tue",
+                         "start_period":  1,
+                         "room":  "R1"
+                     },
+                     {
+                         "card_id":  "C4",
+                         "day":  "Tue",
+                         "start_period":  2,
+                         "room":  "L1"
+                     },
+                     {
+                         "card_id":  "C5",
+                         "day":  "Tue",
+                         "start_period":  3,
+                         "room":  "R1"
+                     }
+                 ]
+}

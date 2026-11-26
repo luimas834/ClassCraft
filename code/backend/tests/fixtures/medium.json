@@ -1,0 +1,3998 @@
+{
+  "meta": {
+    "source": "semester-wise-v2_85.pdf (aSc Timetables export, \"Class Schedule\", Department of CSE, IUT)",
+    "what_this_is": "Every lesson card of the current CSE department routine, with the slot and room it has today.",
+    "counts": {
+      "lessons": 307,
+      "teachers": 58,
+      "rooms": 31,
+      "classes": 27
+    },
+    "decoding_notes": [
+      "A card that fills the whole height of a day row is a whole-class lesson held every week.",
+      "A half-height card with a group label (1A/1B, A/B, MCCV/Ecom ...) is for that sub-group, every week.",
+      "A quarter-height card with a group label is for that sub-group in alternate weeks: weeks = \"A\" (upper half of the row) or \"B\" (lower half).",
+      "A sixth-height card (7th semester elective labs) is an elective group in alternate weeks; its group was inferred from position.",
+      "Joint lessons printed on several class pages (same day, slot, course, teachers, room) are merged into one lesson with several audience entries.",
+      "Lessons whose teacher field shows class abbreviations (C7, S3, C1S1/C1S2/SW1 ...) have no teacher: teachers = [].",
+      "Any lesson with a non-null \"assumption\" field should be confirmed with the department."
+    ]
+  },
+  "time": {
+    "days": [
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri"
+    ],
+    "periods": [
+      {
+        "id": 1,
+        "start": "08:00",
+        "end": "09:15"
+      },
+      {
+        "id": 2,
+        "start": "09:15",
+        "end": "10:30"
+      },
+      {
+        "id": 3,
+        "start": "10:30",
+        "end": "11:45"
+      },
+      {
+        "id": 4,
+        "start": "11:45",
+        "end": "13:00"
+      },
+      {
+        "id": 5,
+        "start": "14:30",
+        "end": "15:45"
+      },
+      {
+        "id": 6,
+        "start": "15:45",
+        "end": "17:00"
+      }
+    ],
+    "lunch_break": {
+      "after_period": 4,
+      "start": "13:00",
+      "end": "14:30"
+    },
+    "two_period_lessons_may_start_at": [
+      1,
+      3,
+      5
+    ]
+  },
+  "teachers": [
+    {
+      "code": "AA",
+      "name": "Ajwad Abrar Mostofa",
+      "printed_as": "AA",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "AAK",
+      "name": "Ashraful Alam Khan",
+      "printed_as": "AAK",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "AAR",
+      "name": "Aashnan Rahman",
+      "printed_as": "AAR",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "ABM",
+      "name": "Dr. A.B.M. Ashikur Rahman",
+      "printed_as": "ABM",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "AFZ",
+      "name": "Anika Farzana",
+      "printed_as": "AFZ",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "AKA",
+      "name": "Dr. Abul Kalam Azad",
+      "printed_as": "AKA (NSc)",
+      "tag": "NSc",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "AKH",
+      "name": "Prof. Dr. A.K.M. Akther Hossain",
+      "printed_as": "AKH (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "ARMK",
+      "name": "Prof. Dr. Abu Raihan Mostofa Kamal",
+      "printed_as": "ARMK",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "ARN",
+      "name": "MD Atiqur Rahman",
+      "printed_as": "ARN",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "ASH",
+      "name": "Asaduzzaman Herok",
+      "printed_as": "ASH",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "AZM",
+      "name": "Dr. Md. Azam Hossain",
+      "printed_as": "AZM",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "AZR",
+      "name": "Dr. Md. Azizar Rahman",
+      "printed_as": "AZR (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "BS",
+      "name": "Abdullahi Binta Suleiman",
+      "printed_as": "BS (TVE)",
+      "tag": "TVE",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "DFS",
+      "name": "Dr. Fahmida Sharmin",
+      "printed_as": "DFS (NSc)",
+      "tag": "NSc",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "FH",
+      "name": "Faisal Hussain",
+      "printed_as": "FH",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "HK",
+      "name": "Prof. Dr. Md. Hasanul Kabir",
+      "printed_as": "HK",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "HM",
+      "name": "Prof. Dr. Hasan Mahmud",
+      "printed_as": "HM",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "HR",
+      "name": "Prof Dr Hamidur Rahman",
+      "printed_as": "HR (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "IAC",
+      "name": "Imtiaj Ahmed Chowdhury",
+      "printed_as": "IAC",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "KH",
+      "name": "Prof. Dr. Md. Kamrul Hasan",
+      "printed_as": "KH",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "KHA",
+      "name": "Khalid Hasan Ador",
+      "printed_as": "KHA",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "KK",
+      "name": "Khadija Khanom",
+      "printed_as": "KK (BTM)",
+      "tag": "BTM",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "LNL",
+      "name": "Lutfun Nahar Lota",
+      "printed_as": "LNL",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MAMR",
+      "name": "Mueeze Al Mushabbir",
+      "printed_as": "MAMR",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MAU",
+      "name": "Mohammad Aman Ullah",
+      "printed_as": "MAU (EEE)",
+      "tag": "EEE",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "MBH",
+      "name": "MD Bakhtiar Hasan",
+      "printed_as": "MBH",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MH",
+      "name": "Mozammal Hoque",
+      "printed_as": "MH (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "MHC",
+      "name": "Mehreen Hossain Chowdhury",
+      "printed_as": "MHC",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MI",
+      "name": "Dr. Mohayeminul Islam",
+      "printed_as": "MI",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MIA",
+      "name": "Mohammad Ishrak Abedin",
+      "printed_as": "MIA",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MJR",
+      "name": "Dr. Mohammad Majidur Rahman",
+      "printed_as": "MJR (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "MKD",
+      "name": "Mubtasim Kamal Dihan",
+      "printed_as": "MKD",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MM",
+      "name": "Dr. Md Moniruzzaman",
+      "printed_as": "MM",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MMA",
+      "name": "Prof. Dr. Muhammad Mahbub Alam",
+      "printed_as": "MMA",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "MMH",
+      "name": "Muhammad Mohsin",
+      "printed_as": "MMH (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "MTM",
+      "name": "Dr. Md. Tusher Mollah",
+      "printed_as": "MTM (NSc)",
+      "tag": "NSc",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "NY",
+      "name": "Njayou Youssef",
+      "printed_as": "NY",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "OR",
+      "name": "Prof. Dr. Obaidur Rahman",
+      "printed_as": "OR (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "RHJ",
+      "name": "Reaz Hassan Joarder",
+      "printed_as": "RHJ",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SAH",
+      "name": "Sohel Ahmed",
+      "printed_as": "SAH",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SAR",
+      "name": "Sumaiya Ahmed Rani",
+      "printed_as": "SAR",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SAZ",
+      "name": "Samnun Azfar",
+      "printed_as": "SAZ",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SB",
+      "name": "SM Sabit Bananee",
+      "printed_as": "SB",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SBI",
+      "name": "Sabrina Islam",
+      "printed_as": "SBI",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SH",
+      "name": "Prof. Dr. Md. Sakhawat Hossen",
+      "printed_as": "SH",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SHU",
+      "name": "Prof. Dr. Sahab Uddin",
+      "printed_as": "SHU (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    },
+    {
+      "code": "SI",
+      "name": "Shahriar Ivan",
+      "printed_as": "SI",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SN",
+      "name": "Samia Nawsheen",
+      "printed_as": "SN",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "SRR",
+      "name": "Syed Rifat Raiyan",
+      "printed_as": "SRR",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "TA",
+      "name": "Dr. Tasnim Ahmed",
+      "printed_as": "TA",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "TAS",
+      "name": "Tanjila Alam Sathi",
+      "printed_as": "TAS",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "THS",
+      "name": "Md. Tanvir Hossain Saikat",
+      "printed_as": "THS",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "TMC",
+      "name": "Tareque Mohmud Chowdhury",
+      "printed_as": "TMC",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "TRT",
+      "name": "Dr. Tajkia Rahman Toma",
+      "printed_as": "TRT",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "TZF",
+      "name": "Md. Tariquzzaman Faisal",
+      "printed_as": "TZF",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "X3",
+      "name": "Unnamed EEE teacher",
+      "printed_as": "X3(EEE)",
+      "tag": "EEE",
+      "external": true,
+      "placeholder": true
+    },
+    {
+      "code": "YKN",
+      "name": "Yousuf Ibne Kamal Niloy",
+      "printed_as": "YKN",
+      "tag": null,
+      "external": false,
+      "placeholder": false
+    },
+    {
+      "code": "ZH",
+      "name": "Zakir Hussain",
+      "printed_as": "ZH (PT)",
+      "tag": "PT",
+      "external": true,
+      "placeholder": false
+    }
+  ],
+  "rooms": [
+    {
+      "name": "Annex",
+      "type": "other",
+      "pool": "FIXED"
+    },
+    {
+      "name": "ICT L-1",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "ICT L-2",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "L-1",
+      "type": "lab",
+      "pool": "CSE_LAB"
+    },
+    {
+      "name": "L-2",
+      "type": "lab",
+      "pool": "CSE_LAB"
+    },
+    {
+      "name": "L-3",
+      "type": "lab",
+      "pool": "CSE_LAB"
+    },
+    {
+      "name": "L-4",
+      "type": "lab",
+      "pool": "CSE_LAB"
+    },
+    {
+      "name": "L-5",
+      "type": "lab",
+      "pool": "CSE_LAB"
+    },
+    {
+      "name": "L-6",
+      "type": "lab",
+      "pool": "CSE_LAB"
+    },
+    {
+      "name": "L-AV (AB1)",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "L-CALIS (AB1)",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "L-Electronics (AB1)",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "L-Measuement (AB1)",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "L-Phy (AB1)",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "Library",
+      "type": "other",
+      "pool": "FIXED"
+    },
+    {
+      "name": "MobileLab",
+      "type": "lab",
+      "pool": "FIXED"
+    },
+    {
+      "name": "R-101 (AB3)",
+      "type": "classroom",
+      "pool": "FIXED"
+    },
+    {
+      "name": "R-102 (AB3)",
+      "type": "classroom",
+      "pool": "FIXED"
+    },
+    {
+      "name": "R-105 (AB3)",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-106 (AB3)",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-203",
+      "type": "classroom",
+      "pool": "FIXED"
+    },
+    {
+      "name": "R-205",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-301",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-302",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-304",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-411",
+      "type": "classroom",
+      "pool": "FIXED"
+    },
+    {
+      "name": "R-508",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-509",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-510",
+      "type": "classroom",
+      "pool": "CSE_CLASSROOM"
+    },
+    {
+      "name": "R-603",
+      "type": "classroom",
+      "pool": "FIXED"
+    },
+    {
+      "name": "R-606",
+      "type": "classroom",
+      "pool": "FIXED"
+    }
+  ],
+  "room_pools": {
+    "CSE_CLASSROOM": [
+      "R-205",
+      "R-301",
+      "R-302",
+      "R-304",
+      "R-508",
+      "R-509",
+      "R-510",
+      "R-105 (AB3)",
+      "R-106 (AB3)"
+    ],
+    "CSE_LAB": [
+      "L-1",
+      "L-2",
+      "L-3",
+      "L-4",
+      "L-5",
+      "L-6"
+    ]
+  },
+  "classes": [
+    {
+      "id": "CSE1-S1",
+      "name": "BSc CSE 1st-Section 1",
+      "kind": "regular",
+      "divisions": [
+        [
+          "1A",
+          "1B"
+        ],
+        [
+          "DOT",
+          "English"
+        ],
+        [
+          "Arabic"
+        ]
+      ]
+    },
+    {
+      "id": "CSE1-S2",
+      "name": "BSc CSE 1st-Section 2",
+      "kind": "regular",
+      "divisions": [
+        [
+          "2A",
+          "2B"
+        ],
+        [
+          "DOT",
+          "English"
+        ],
+        [
+          "Arabic"
+        ]
+      ]
+    },
+    {
+      "id": "SWE1",
+      "name": "BSc SWE 1st",
+      "kind": "regular",
+      "divisions": [
+        [
+          "A",
+          "B"
+        ],
+        [
+          "DOT",
+          "English"
+        ]
+      ]
+    },
+    {
+      "id": "CSE3-S1",
+      "name": "BSc CSE 3rd-Section 1",
+      "kind": "regular",
+      "divisions": [
+        [
+          "1A",
+          "1B"
+        ]
+      ]
+    },
+    {
+      "id": "CSE3-S2",
+      "name": "BSc CSE 3rd-Section 2",
+      "kind": "regular",
+      "divisions": [
+        [
+          "2A",
+          "2B"
+        ]
+      ]
+    },
+    {
+      "id": "SWE3",
+      "name": "BSc SWE 3rd",
+      "kind": "regular",
+      "divisions": [
+        [
+          "A",
+          "B"
+        ]
+      ]
+    }
+  ],
+  "lessons": [
+    {
+      "id": "L001",
+      "course": "Phy 4142",
+      "series": "Phy 4142 @ CSE1-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "AZR",
+        "DFS"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 1,
+        "room": "L-Phy (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L002",
+      "course": "Phy 4142",
+      "series": "Phy 4142 @ CSE1-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "AZR",
+        "DFS"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 1,
+        "room": "L-Phy (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L003",
+      "course": "CSE 4105",
+      "series": "CSE 4105 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "KH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L004",
+      "course": "Hum 4142",
+      "series": "Hum 4142 @ CSE1-S1:Arabic",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MMH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "Arabic"
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 5,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L005",
+      "course": "Phy 4141",
+      "series": "Phy 4141 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AKH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L006",
+      "course": "CSE 4107",
+      "series": "CSE 4107 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 2,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L007",
+      "course": "CSE 4105",
+      "series": "CSE 4105 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "KH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 3,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L008",
+      "course": "CSE 4108",
+      "series": "CSE 4108 @ CSE1-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SRR",
+        "SAZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 5,
+        "room": "L-2"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L009",
+      "course": "Math 4141",
+      "series": "Math 4141 @ CSE1-S1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MTM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L010",
+      "course": "Hum 4145",
+      "series": "Hum 4145 @ CSE1-S1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MMH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 3,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L011",
+      "course": "Programming Training",
+      "series": "Programming Training @ CSE1-S1:DOT + CSE1-S2:DOT + SWE1:DOT",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "DOT"
+        },
+        {
+          "class": "CSE1-S2",
+          "group": "DOT"
+        },
+        {
+          "class": "SWE1",
+          "group": "DOT"
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 5,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L012",
+      "course": "Hum 4144",
+      "series": "Hum 4144 @ CSE1-S1:English + CSE1-S2:English + SWE1:English",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "ZH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "English"
+        },
+        {
+          "class": "CSE1-S2",
+          "group": "English"
+        },
+        {
+          "class": "SWE1",
+          "group": "English"
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 5,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L013",
+      "course": "Hum 4147",
+      "series": "Hum 4147 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 1,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L014",
+      "course": "Phy 4141",
+      "series": "Phy 4141 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AKH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 2,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L015",
+      "course": "Math 4141",
+      "series": "Math 4141 @ CSE1-S1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MTM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L016",
+      "course": "CSE 4108",
+      "series": "CSE 4108 @ CSE1-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MM",
+        "RHJ"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 5,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L017",
+      "course": "CSE 4104",
+      "series": "CSE 4104 @ CSE1-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "AA"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 1,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L018",
+      "course": "CSE 4104",
+      "series": "CSE 4104 @ CSE1-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "AA"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 1,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L019",
+      "course": "Hum 4147",
+      "series": "Hum 4147 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L020",
+      "course": "CSE 4107",
+      "series": "CSE 4107 @ CSE1-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 4,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L021",
+      "course": "Hum 4142",
+      "series": "Hum 4142 @ CSE1-S2:Arabic",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MMH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "Arabic"
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 1,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L022",
+      "course": "Phy 4142",
+      "series": "Phy 4142 @ CSE1-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "AZR",
+        "DFS"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "L-Phy (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L023",
+      "course": "Phy 4142",
+      "series": "Phy 4142 @ CSE1-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "AZR",
+        "DFS"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "L-Phy (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L024",
+      "course": "CSE 4105",
+      "series": "CSE 4105 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "KH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 5,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L025",
+      "course": "CSE 4105",
+      "series": "CSE 4105 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "KH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L026",
+      "course": "Phy 4141",
+      "series": "Phy 4141 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AKH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 2,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L027",
+      "course": "CSE 4107",
+      "series": "CSE 4107 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 4,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L028",
+      "course": "Hum 4145",
+      "series": "Hum 4145 @ CSE1-S2",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MMH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L029",
+      "course": "CSE 4108",
+      "series": "CSE 4108 @ CSE1-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SRR",
+        "SAZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 3,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L030",
+      "course": "CSE 4108",
+      "series": "CSE 4108 @ CSE1-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MM",
+        "RHJ"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 3,
+        "room": "L-2"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L031",
+      "course": "Math 4141",
+      "series": "Math 4141 @ CSE1-S2",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MTM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 1,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L032",
+      "course": "Phy 4141",
+      "series": "Phy 4141 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AKH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L033",
+      "course": "Hum 4147",
+      "series": "Hum 4147 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 5,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L034",
+      "course": "Hum 4147",
+      "series": "Hum 4147 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MH"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 1,
+        "room": "R-205"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L035",
+      "course": "CSE 4107",
+      "series": "CSE 4107 @ CSE1-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 2,
+        "room": "R-205"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L036",
+      "course": "Math 4141",
+      "series": "Math 4141 @ CSE1-S2",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MTM"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "R-205"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L037",
+      "course": "CSE 4104",
+      "series": "CSE 4104 @ CSE1-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "AA"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 5,
+        "room": "L-6"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L038",
+      "course": "CSE 4104",
+      "series": "CSE 4104 @ CSE1-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "AA"
+      ],
+      "audience": [
+        {
+          "class": "CSE1-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 5,
+        "room": "L-6"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L039",
+      "course": "SWE 4101",
+      "series": "SWE 4101 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SAH"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 1,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L040",
+      "course": "Hum 4147",
+      "series": "Hum 4147 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "BS"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 2,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L041",
+      "course": "Hum 4145",
+      "series": "Hum 4145 @ SWE1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MMH"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L042",
+      "course": "CSE 4108",
+      "series": "CSE 4108 @ SWE1:B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SI",
+        "MIA"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": "B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 5,
+        "room": "L-2"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L043",
+      "course": "Phy 4144",
+      "series": "Phy 4144 @ SWE1:A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "SHU",
+        "MJR"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": "A"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "L-Measuement (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L044",
+      "course": "CSE 4104",
+      "series": "CSE 4104 @ SWE1:B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "AA"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": "B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "L-5"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L045",
+      "course": "CSE 4104",
+      "series": "CSE 4104 @ SWE1:A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "AA"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": "A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "L-5"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L046",
+      "course": "Phy 4144",
+      "series": "Phy 4144 @ SWE1:B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "SHU",
+        "MJR"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": "B"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "L-Measuement (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L047",
+      "course": "Hum 4142",
+      "series": "Hum 4142 @ SWE1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "ARMK"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 3,
+        "room": "R-302"
+      },
+      "notes": [
+        "SWE"
+      ],
+      "assumption": null
+    },
+    {
+      "id": "L048",
+      "course": "Phy 4143",
+      "series": "Phy 4143 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SHU"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 5,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L049",
+      "course": "Hum 4147",
+      "series": "Hum 4147 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "BS"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L050",
+      "course": "CSE 4107",
+      "series": "CSE 4107 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SI"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 2,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L051",
+      "course": "Math 4141",
+      "series": "Math 4141 @ SWE1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MTM"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 3,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L052",
+      "course": "SWE 4101",
+      "series": "SWE 4101 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SAH"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 1,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L053",
+      "course": "Phy 4143",
+      "series": "Phy 4143 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SHU"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 2,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L054",
+      "course": "CSE 4107",
+      "series": "CSE 4107 @ SWE1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SI"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 4,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L055",
+      "course": "Math 4141",
+      "series": "Math 4141 @ SWE1",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "MTM"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 1,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L056",
+      "course": "CSE 4108",
+      "series": "CSE 4108 @ SWE1:A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SI",
+        "MIA"
+      ],
+      "audience": [
+        {
+          "class": "SWE1",
+          "group": "A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "L-2"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L057",
+      "course": "Math 4341",
+      "series": "Math 4341 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AAR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 2,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L058",
+      "course": "CSE 4308",
+      "series": "CSE 4308 @ CSE3-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "SN",
+        "SBI"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "L-3"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L059",
+      "course": "CSE 4302",
+      "series": "CSE 4302 @ CSE3-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MKD",
+        "FH"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L060",
+      "course": "CSE 4304",
+      "series": "CSE 4304 @ CSE3-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AAR",
+        "AFZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 5,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L061",
+      "course": "Math 4341",
+      "series": "Math 4341 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AAR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L062",
+      "course": "CSE 4301",
+      "series": "CSE 4301 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "FH"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 2,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L063",
+      "course": "CSE 4304",
+      "series": "CSE 4304 @ CSE3-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TA",
+        "AFZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 3,
+        "room": "L-4"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L064",
+      "course": "CSE 4308",
+      "series": "CSE 4308 @ CSE3-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "SN",
+        "SBI"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 3,
+        "room": "L-2"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L065",
+      "course": "CSE 4305",
+      "series": "CSE 4305 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "IAC"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 5,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L066",
+      "course": "CSE 4301",
+      "series": "CSE 4301 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "FH"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L067",
+      "course": "CSE 4303",
+      "series": "CSE 4303 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TA"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 2,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L068",
+      "course": "CSE 4307",
+      "series": "CSE 4307 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "ARMK"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 4,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L069",
+      "course": "EEE 4383",
+      "series": "EEE 4383 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "HR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 1,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L070",
+      "course": "EEE 4384",
+      "series": "EEE 4384 @ CSE3-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "MAU",
+        "X3"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "L-Electronics (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L071",
+      "course": "EEE 4384",
+      "series": "EEE 4384 @ CSE3-S1:1B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "MAU",
+        "X3"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1B"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "L-Electronics (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L072",
+      "course": "CSE 4307",
+      "series": "CSE 4307 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "ARMK"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 5,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L073",
+      "course": "EEE 4383",
+      "series": "EEE 4383 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "HR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 2,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L074",
+      "course": "CSE 4305",
+      "series": "CSE 4305 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "IAC"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "R-105 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L075",
+      "course": "CSE 4303",
+      "series": "CSE 4303 @ CSE3-S1",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TA"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 4,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L076",
+      "course": "CSE 4302",
+      "series": "CSE 4302 @ CSE3-S1:1A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MKD",
+        "YKN"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S1",
+          "group": "1A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 5,
+        "room": "L-5"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L077",
+      "course": "CSE 4308",
+      "series": "CSE 4308 @ CSE3-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "SN",
+        "SAZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 1,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L078",
+      "course": "Math 4341",
+      "series": "Math 4341 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AAR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 4,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L079",
+      "course": "CSE 4302",
+      "series": "CSE 4302 @ CSE3-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MKD",
+        "YKN"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 5,
+        "room": "L-4"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L080",
+      "course": "CSE 4304",
+      "series": "CSE 4304 @ CSE3-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TA",
+        "AFZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L081",
+      "course": "CSE 4308",
+      "series": "CSE 4308 @ CSE3-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "SN",
+        "SAZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 1,
+        "room": "L-3"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L082",
+      "course": "CSE 4305",
+      "series": "CSE 4305 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "IAC"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 3,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L083",
+      "course": "CSE 4301",
+      "series": "CSE 4301 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "FH"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 5,
+        "room": "R-508"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L084",
+      "course": "Math 4341",
+      "series": "Math 4341 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AAR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L085",
+      "course": "CSE 4307",
+      "series": "CSE 4307 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "ARMK"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 2,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L086",
+      "course": "CSE 4301",
+      "series": "CSE 4301 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "FH"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 3,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L087",
+      "course": "CSE 4303",
+      "series": "CSE 4303 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TA"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 4,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L088",
+      "course": "EEE 4383",
+      "series": "EEE 4383 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "HR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 2,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L089",
+      "course": "CSE 4307",
+      "series": "CSE 4307 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "ARMK"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L090",
+      "course": "CSE 4305",
+      "series": "CSE 4305 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "IAC"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 4,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L091",
+      "course": "EEE 4384",
+      "series": "EEE 4384 @ CSE3-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "A",
+      "teachers": [
+        "MAU",
+        "X3"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 5,
+        "room": "L-Electronics (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L092",
+      "course": "EEE 4384",
+      "series": "EEE 4384 @ CSE3-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "B",
+      "teachers": [
+        "MAU",
+        "X3"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "FIXED",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 5,
+        "room": "L-Electronics (AB1)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L093",
+      "course": "EEE 4383",
+      "series": "EEE 4383 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "HR"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 1,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L094",
+      "course": "CSE 4303",
+      "series": "CSE 4303 @ CSE3-S2",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TA"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 2,
+        "room": "R-301"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L095",
+      "course": "CSE 4302",
+      "series": "CSE 4302 @ CSE3-S2:2A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MKD",
+        "FH"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "L-5"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L096",
+      "course": "CSE 4304",
+      "series": "CSE 4304 @ CSE3-S2:2B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "AAR",
+        "AFZ"
+      ],
+      "audience": [
+        {
+          "class": "CSE3-S2",
+          "group": "2B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "L-3"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L097",
+      "course": "CSE 4309",
+      "series": "CSE 4309 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SRR"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 2,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L098",
+      "course": "CSE 4305",
+      "series": "CSE 4305 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TAS"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 3,
+        "room": "R-302"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L099",
+      "course": "SWE 4301",
+      "series": "SWE 4301 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MI"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 4,
+        "room": "R-205"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L100",
+      "course": "CSE 4303",
+      "series": "CSE 4303 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "RHJ"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Mon",
+        "start_period": 5,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L101",
+      "course": "CSE 4305",
+      "series": "CSE 4305 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TAS"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 2,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L102",
+      "course": "CSE 4304",
+      "series": "CSE 4304 @ SWE3:B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "RHJ",
+        "SAR"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": "B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 3,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L103",
+      "course": "SWE 4301",
+      "series": "SWE 4301 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MI"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Tue",
+        "start_period": 5,
+        "room": "R-510"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L104",
+      "course": "SWE 4302",
+      "series": "SWE 4302 @ SWE3:A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TRT",
+        "AFZ"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": "A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L105",
+      "course": "CSE 4308",
+      "series": "CSE 4308 @ SWE3:B",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "TZF",
+        "SN"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": "B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 1,
+        "room": "L-5"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L106",
+      "course": "CSE 4307",
+      "series": "CSE 4307 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TZF"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Wed",
+        "start_period": 3,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L107",
+      "course": "Math 4341",
+      "series": "Math 4341 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SN"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 1,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L108",
+      "course": "CSE 4304",
+      "series": "CSE 4304 @ SWE3:A",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "RHJ",
+        "AAR"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": "A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L109",
+      "course": "SWE 4302",
+      "series": "SWE 4302 @ SWE3:B",
+      "length_periods": 2,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "MI",
+        "KHA"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": "B"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 3,
+        "room": "L-3"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L110",
+      "course": "CSE 4309",
+      "series": "CSE 4309 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SRR"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Thu",
+        "start_period": 5,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L111",
+      "course": "Math 4341",
+      "series": "Math 4341 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "SN"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 1,
+        "room": "R-106 (AB3)"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L112",
+      "course": "CSE 4303",
+      "series": "CSE 4303 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "RHJ"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 3,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L113",
+      "course": "CSE 4307",
+      "series": "CSE 4307 @ SWE3",
+      "length_periods": 1,
+      "printed_minutes": null,
+      "weeks": "all",
+      "teachers": [
+        "TZF"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": null
+        }
+      ],
+      "room_pool": "CSE_CLASSROOM",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 4,
+        "room": "R-304"
+      },
+      "notes": [],
+      "assumption": null
+    },
+    {
+      "id": "L114",
+      "course": "CSE 4308",
+      "series": "CSE 4308 @ SWE3:A",
+      "length_periods": 2,
+      "printed_minutes": 100,
+      "weeks": "all",
+      "teachers": [
+        "TZF",
+        "SN"
+      ],
+      "audience": [
+        {
+          "class": "SWE3",
+          "group": "A"
+        }
+      ],
+      "room_pool": "CSE_LAB",
+      "is_project_slot": false,
+      "fixed_time": false,
+      "current": {
+        "day": "Fri",
+        "start_period": 5,
+        "room": "L-1"
+      },
+      "notes": [],
+      "assumption": null
+    }
+  ],
+  "assumed_constraints": {
+    "external_teacher_allowed_days": {
+      "explanation": "ASSUMPTION, not from the PDF: part-time and other-department teachers are only available on the days they teach in the current routine.",
+      "days": {
+        "AKA": [
+          "Mon",
+          "Wed"
+        ],
+        "AKH": [
+          "Tue",
+          "Thu"
+        ],
+        "AZR": [
+          "Mon"
+        ],
+        "BS": [
+          "Mon",
+          "Wed"
+        ],
+        "DFS": [
+          "Mon"
+        ],
+        "HR": [
+          "Thu",
+          "Fri"
+        ],
+        "KK": [
+          "Mon"
+        ],
+        "MAU": [
+          "Thu"
+        ],
+        "MH": [
+          "Thu",
+          "Fri"
+        ],
+        "MJR": [
+          "Tue"
+        ],
+        "MMH": [
+          "Mon",
+          "Wed"
+        ],
+        "MTM": [
+          "Wed",
+          "Thu",
+          "Fri"
+        ],
+        "OR": [
+          "Mon",
+          "Thu",
+          "Fri"
+        ],
+        "SHU": [
+          "Tue",
+          "Thu"
+        ],
+        "X3": [
+          "Thu"
+        ],
+        "ZH": [
+          "Wed"
+        ]
+      }
+    }
+  }
+}

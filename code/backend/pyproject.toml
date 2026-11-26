@@ -45,6 +45,7 @@ quote-style = "double"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+pythonpath = ["."]
 
 # --strict-markers turns a misspelled marker into an error instead of a warning.
 addopts = "--strict-markers"
