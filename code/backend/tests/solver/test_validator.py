@@ -5,7 +5,7 @@ from pathlib import Path
 
 from solver import validator
 from solver.loader_json import load_problem
-from solver.problem import Audience, Placement, Problem
+from solver.problem import Audience, Division, Group, Placement, Problem
 from solver.validator import validate
 
 FIXTURES = Path(__file__).parent.parent / "fixtures"
@@ -23,6 +23,16 @@ def _with_card(problem: Problem, card_id: str, **changes: object) -> Problem:
         replace(card, **changes) if card.id == card_id else card for card in problem.cards
     )
     return replace(problem, cards=cards)
+
+
+def _with_second_division(problem: Problem) -> Problem:
+    """Class X gains a second division, so a clash across divisions is possible."""
+    student_class = problem.classes[0]
+    divisions = (
+        student_class.divisions[0],
+        Division(id="X-D2", groups=(Group(id="Arabic", name="Arabic"),)),
+    )
+    return replace(problem, classes=(replace(student_class, divisions=divisions),))
 
 
 def _moved(placements: list[Placement], card_id: str, **changes: object) -> list[Placement]:
@@ -174,3 +184,71 @@ def test_h9_is_not_checked_when_the_switch_is_off():
     problem = _with_card(problem, "C4", course="Course 3", audiences=(Audience("X", "A"),))
 
     assert validate(problem, placements, replace(problem.settings, h9=False)) == []
+
+
+def test_two_groups_of_one_division_may_share_a_slot():
+    problem, placements = _tiny()
+    problem = _with_card(problem, "C2", teachers=())
+    moved = _moved(placements, "C2", start_period=1)
+
+    assert validate(problem, moved, problem.settings) == []
+
+
+def test_groups_of_different_divisions_may_not_share_a_slot():
+    problem, placements = _tiny()
+    problem = _with_second_division(problem)
+    problem = _with_card(problem, "C2", teachers=(), audiences=(Audience("X", "Arabic"),))
+    moved = _moved(placements, "C2", start_period=1)
+
+    found = validate(problem, moved, problem.settings)
+
+    assert _rules(found) == ["H5"]
+    assert found[0].card_ids == ("C1", "C2")
+
+
+def test_a_group_and_the_whole_class_may_not_share_a_slot():
+    problem, placements = _tiny()
+    problem = _with_card(problem, "C2", teachers=(), audiences=(Audience("X", None),))
+    moved = _moved(placements, "C2", start_period=1)
+
+    found = validate(problem, moved, problem.settings)
+
+    assert _rules(found) == ["H5"]
+    assert found[0].text == "Class X has Course 1 and Course 2 at the same time (Mon, period 1)."
+
+
+def test_alternate_week_lessons_may_share_a_teacher_a_room_and_a_slot():
+    problem, placements = _tiny()
+    problem = _with_card(problem, "C3", weeks=("A",))
+    problem = _with_card(problem, "C4", weeks=("B",), room_group="CLASSROOM")
+    moved = _moved(placements, "C4", start_period=1, room="R1")
+
+    assert validate(problem, moved, problem.settings) == []
+
+
+def test_lessons_of_the_same_week_may_not_share_a_teacher_and_a_room():
+    problem, placements = _tiny()
+    problem = _with_card(problem, "C3", weeks=("A",))
+    problem = _with_card(problem, "C4", weeks=("A",), room_group="CLASSROOM")
+    moved = _moved(placements, "C4", start_period=1, room="R1")
+
+    found = validate(problem, moved, problem.settings)
+
+    assert _rules(found) == ["H3", "H4"]
+
+
+def test_moving_one_card_of_a_teacher_onto_another_names_both_courses():
+    problem, placements = load_problem(IUT_DATA)
+    # L003 and L186 are both taught by KH, on Monday period 3 and Friday period 3.
+    moved = _moved(placements, "L186", day="Mon", start_period=3)
+
+    found = [item for item in validate(problem, moved, problem.settings) if item.rule == "H3"]
+
+    assert found[0].card_ids == ("L003", "L186")
+    assert found[0].text == "KH teaches CSE 4105 and SWE 4502 at the same time (Mon, period 3)."
+
+
+def test_the_validator_does_not_use_or_tools():
+    source = Path(validator.__file__).read_text(encoding="utf-8")
+
+    assert "ortools" not in source
