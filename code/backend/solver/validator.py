@@ -10,6 +10,9 @@ from itertools import combinations
 
 from solver.problem import Card, Placement, Problem, Settings
 
+# What one card claims of one class in one slot: the card id and the group, if any.
+_Seat = tuple[str, str | None]
+
 
 @dataclass(frozen=True)
 class Violation:
@@ -50,6 +53,7 @@ def validate(
     found += _check_h2(problem, placed, cards)
     found += _check_h3(problem, placed, cards)
     found += _check_h4(problem, placed, cards)
+    found += _check_h5(problem, placed, cards)
     return sorted(found, key=lambda item: (item.rule, item.card_ids))
 
 
@@ -217,6 +221,75 @@ def _check_h4(
                 )
             )
     return _earliest_per_pair(problem, found)
+
+
+def _check_h5(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H5: a student group attends one lesson at a time."""
+    division_of = _division_of_group(problem)
+    busy: dict[tuple[str, str, str, int], list[_Seat]] = defaultdict(list)
+    for item in placed:
+        card = cards[item.card_id]
+        for audience in card.audiences:
+            for week in _weeks_of(card, item):
+                for period in _covered_periods(card, item):
+                    key = (audience.class_id, week, item.day, period)
+                    busy[key].append((item.card_id, audience.group_id))
+
+    found: list[Violation] = []
+    for (class_id, _week, day, period), seats in busy.items():
+        for first, second in _seat_pairs(seats):
+            if not _seats_clash(division_of, class_id, first[1], second[1]):
+                continue
+            one, two = cards[first[0]], cards[second[0]]
+            found.append(
+                Violation(
+                    "H5",
+                    (one.id, two.id),
+                    day,
+                    period,
+                    f"{_class_label(problem, class_id)} has {one.course} and "
+                    f"{two.course} at the same time ({day}, period {period}).",
+                )
+            )
+    return _earliest_per_pair(problem, found)
+
+
+def _seat_pairs(seats: list[_Seat]) -> list[tuple[_Seat, _Seat]]:
+    """Every pair of seats of one class in one slot that belongs to two cards."""
+    unique = sorted(set(seats), key=lambda seat: (seat[0], seat[1] or ""))
+    return [(one, two) for one, two in combinations(unique, 2) if one[0] != two[0]]
+
+
+def _seats_clash(
+    division_of: dict[tuple[str, str], str],
+    class_id: str,
+    first_group: str | None,
+    second_group: str | None,
+) -> bool:
+    """Two lessons of one class clash unless they are two groups of one division."""
+    if first_group is None or second_group is None:
+        return True
+    if first_group == second_group:
+        return True
+    first = division_of.get((class_id, first_group))
+    second = division_of.get((class_id, second_group))
+    if first is None or second is None:
+        return True
+    return first != second
+
+
+def _division_of_group(problem: Problem) -> dict[tuple[str, str], str]:
+    """Which division each group belongs to, for every class."""
+    return {
+        (student_class.id, group.id): division.id
+        for student_class in problem.classes
+        for division in student_class.divisions
+        for group in division.groups
+    }
 
 
 def _teacher_label(problem: Problem, teacher_id: str) -> str:
