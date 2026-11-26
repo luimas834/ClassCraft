@@ -21,6 +21,16 @@ class Violation:
     text: str
 
 
+@dataclass(frozen=True)
+class _Grid:
+    """The period grid in the shape the checks need."""
+
+    active_days: frozenset[str]
+    periods: frozenset[int]
+    block_starts: frozenset[int]
+    break_after: frozenset[int]
+
+
 def validate(
     problem: Problem,
     placements: list[Placement],
@@ -36,6 +46,7 @@ def validate(
 
     found: list[Violation] = []
     found += _check_h1(problem, placed)
+    found += _check_h2(problem, placed, cards)
     return sorted(found, key=lambda item: (item.rule, item.card_ids))
 
 
@@ -57,6 +68,61 @@ def _check_h1(problem: Problem, placed: list[Placement]) -> list[Violation]:
             text = f"{card.course} for {audience} is placed more than once."
         found.append(Violation("H1", (card.id,), None, None, text))
     return found
+
+
+def _check_h2(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H2: a long lesson starts a block and never runs across a break."""
+    grid = _read_grid(problem)
+
+    found: list[Violation] = []
+    for item in placed:
+        card = cards[item.card_id]
+        if not _slot_is_impossible(grid, card, item):
+            continue
+        audience = _audience_label(problem, card)
+        found.append(
+            Violation(
+                "H2",
+                (card.id,),
+                item.day,
+                item.start_period,
+                f"{card.course} for {audience} cannot start at period {item.start_period}.",
+            )
+        )
+    return found
+
+
+def _slot_is_impossible(grid: _Grid, card: Card, placement: Placement) -> bool:
+    """No lesson of this length may start here, whatever else is placed."""
+    if placement.day not in grid.active_days:
+        return True
+    covered = _covered_periods(card, placement)
+    if any(period not in grid.periods for period in covered):
+        return True
+    if card.length_periods > 1 and placement.start_period not in grid.block_starts:
+        return True
+    # The last period of a lesson may be followed by a break; an earlier one may not.
+    return any(period in grid.break_after for period in covered[:-1])
+
+
+def _read_grid(problem: Problem) -> _Grid:
+    """Read the days and periods once, so the checks do not walk them again."""
+    return _Grid(
+        active_days=frozenset(day.id for day in problem.days if day.active),
+        periods=frozenset(period.id for period in problem.periods),
+        block_starts=frozenset(period.id for period in problem.periods if period.starts_block),
+        break_after=frozenset(period.id for period in problem.periods if period.break_after),
+    )
+
+
+def _covered_periods(card: Card, placement: Placement) -> tuple[int, ...]:
+    """The periods a card sits in: its start period and the ones after it."""
+    start = placement.start_period
+    return tuple(range(start, start + card.length_periods))
 
 
 def _teacher_label(problem: Problem, teacher_id: str) -> str:
