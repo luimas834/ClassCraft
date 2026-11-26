@@ -54,6 +54,8 @@ def validate(
     found += _check_h3(problem, placed, cards)
     found += _check_h4(problem, placed, cards)
     found += _check_h5(problem, placed, cards)
+    found += _check_h6(problem, placed, cards)
+    found += _check_h7(problem, placed, cards)
     return sorted(found, key=lambda item: (item.rule, item.card_ids))
 
 
@@ -290,6 +292,67 @@ def _division_of_group(problem: Problem) -> dict[tuple[str, str], str]:
         for division in student_class.divisions
         for group in division.groups
     }
+
+
+def _check_h6(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H6: a lesson keeps its exact room, or uses a room of its room group."""
+    group_rooms = {group.id: set(group.rooms) for group in problem.room_groups}
+    active_rooms = {room.id for room in problem.rooms if room.active}
+
+    found: list[Violation] = []
+    for item in placed:
+        card = cards[item.card_id]
+        if item.room in _allowed_rooms(card, group_rooms, active_rooms):
+            continue
+        audience = _audience_label(problem, card)
+        where = "no room" if item.room is None else item.room
+        text = f"{card.course} for {audience} is in {where}, which is not allowed for it."
+        found.append(Violation("H6", (card.id,), item.day, item.start_period, text))
+    return found
+
+
+def _allowed_rooms(
+    card: Card,
+    group_rooms: dict[str, set[str]],
+    active_rooms: set[str],
+) -> set[str | None]:
+    """The rooms a card may use. A card that needs no room may only have none."""
+    if card.exact_room is not None:
+        return {card.exact_room}
+    if card.room_group is not None:
+        return set(group_rooms.get(card.room_group, set()) & active_rooms)
+    return {None}
+
+
+def _check_h7(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H7: a fixed card keeps the slot the department gave it."""
+    found: list[Violation] = []
+    for item in placed:
+        card = cards[item.card_id]
+        if card.fixed_day is None and card.fixed_period is None:
+            continue
+        if card.fixed_day == item.day and card.fixed_period == item.start_period:
+            continue
+        audience = _audience_label(problem, card)
+        found.append(
+            Violation(
+                "H7",
+                (card.id,),
+                card.fixed_day,
+                card.fixed_period,
+                f"{card.course} for {audience} is fixed on {card.fixed_day}, "
+                f"period {card.fixed_period}, but is placed elsewhere.",
+            )
+        )
+    return found
 
 
 def _teacher_label(problem: Problem, teacher_id: str) -> str:
