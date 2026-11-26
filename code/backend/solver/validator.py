@@ -6,6 +6,7 @@ mistake in the solver's model cannot hide a clash from this check.
 
 from collections import defaultdict
 from dataclasses import dataclass
+from itertools import combinations
 
 from solver.problem import Card, Placement, Problem, Settings
 
@@ -47,6 +48,7 @@ def validate(
     found: list[Violation] = []
     found += _check_h1(problem, placed)
     found += _check_h2(problem, placed, cards)
+    found += _check_h3(problem, placed, cards)
     return sorted(found, key=lambda item: (item.rule, item.card_ids))
 
 
@@ -123,6 +125,66 @@ def _covered_periods(card: Card, placement: Placement) -> tuple[int, ...]:
     """The periods a card sits in: its start period and the ones after it."""
     start = placement.start_period
     return tuple(range(start, start + card.length_periods))
+
+
+def _check_h3(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H3: a teacher takes one lesson at a time."""
+    busy: dict[tuple[str, str, str, int], list[Placement]] = defaultdict(list)
+    for item in placed:
+        card = cards[item.card_id]
+        for teacher in card.teachers:
+            for week in _weeks_of(card, item):
+                for period in _covered_periods(card, item):
+                    busy[(teacher, week, item.day, period)].append(item)
+
+    found: list[Violation] = []
+    for (teacher, _week, day, period), items in busy.items():
+        for one, two in _card_pairs(cards, items):
+            found.append(
+                Violation(
+                    "H3",
+                    (one.id, two.id),
+                    day,
+                    period,
+                    f"{_teacher_label(problem, teacher)} teaches {one.course} and "
+                    f"{two.course} at the same time ({day}, period {period}).",
+                )
+            )
+    return _earliest_per_pair(problem, found)
+
+
+def _weeks_of(card: Card, placement: Placement) -> tuple[str, ...]:
+    """The weeks a placement runs in. An alternate-week card runs in one week."""
+    if placement.week is None:
+        return card.weeks
+    return tuple(week for week in card.weeks if week == placement.week)
+
+
+def _card_pairs(cards: dict[str, Card], items: list[Placement]) -> list[tuple[Card, Card]]:
+    """Every pair of different cards sharing one slot, in a fixed order."""
+    unique = sorted({item.card_id for item in items})
+    return [(cards[first], cards[second]) for first, second in combinations(unique, 2)]
+
+
+def _earliest_per_pair(problem: Problem, found: list[Violation]) -> list[Violation]:
+    """Keep one sentence per pair of cards: the earliest slot they share."""
+    day_order = {day.id: index for index, day in enumerate(problem.days)}
+    best: dict[tuple[str, tuple[str, ...]], Violation] = {}
+    for item in found:
+        key = (item.rule, item.card_ids)
+        current = best.get(key)
+        if current is None or _slot_order(day_order, item) < _slot_order(day_order, current):
+            best[key] = item
+    return list(best.values())
+
+
+def _slot_order(day_order: dict[str, int], item: Violation) -> tuple[int, int]:
+    """How early in the week a violation sits, so one pair gives one sentence."""
+    return (day_order.get(item.day, len(day_order)), item.period or 0)
 
 
 def _teacher_label(problem: Problem, teacher_id: str) -> str:
