@@ -49,6 +49,7 @@ def validate(
     found += _check_h1(problem, placed)
     found += _check_h2(problem, placed, cards)
     found += _check_h3(problem, placed, cards)
+    found += _check_h4(problem, placed, cards)
     return sorted(found, key=lambda item: (item.rule, item.card_ids))
 
 
@@ -185,6 +186,37 @@ def _earliest_per_pair(problem: Problem, found: list[Violation]) -> list[Violati
 def _slot_order(day_order: dict[str, int], item: Violation) -> tuple[int, int]:
     """How early in the week a violation sits, so one pair gives one sentence."""
     return (day_order.get(item.day, len(day_order)), item.period or 0)
+
+
+def _check_h4(
+    problem: Problem,
+    placed: list[Placement],
+    cards: dict[str, Card],
+) -> list[Violation]:
+    """H4: a room holds one lesson at a time."""
+    busy: dict[tuple[str, str, str, int], list[Placement]] = defaultdict(list)
+    for item in placed:
+        if item.room is None:
+            continue
+        card = cards[item.card_id]
+        for week in _weeks_of(card, item):
+            for period in _covered_periods(card, item):
+                busy[(item.room, week, item.day, period)].append(item)
+
+    found: list[Violation] = []
+    for (room, _week, day, period), items in busy.items():
+        for one, two in _card_pairs(cards, items):
+            found.append(
+                Violation(
+                    "H4",
+                    (one.id, two.id),
+                    day,
+                    period,
+                    f"{room} holds {one.course} and {two.course} at the same time "
+                    f"({day}, period {period}).",
+                )
+            )
+    return _earliest_per_pair(problem, found)
 
 
 def _teacher_label(problem: Problem, teacher_id: str) -> str:
